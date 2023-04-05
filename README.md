@@ -29,15 +29,21 @@
 * Identify a many-to-many relationship in the diagram. Which tables are involved and why?
 
 addresses
-- associates with employees, restaurant and customers in a one-to-many relationship
+- associates with employees and customers in a one-to-many relationship, and with restaurants in a one-to-one relationship
 - one address can be associated with more than one employee/restaurant/customer,
 but an employee/restaurant/customer can be associated with only one address
+- has_many: employees
+- has_one: restaurant
+- has_many: customers
 
 users
 - associates with employees and customers in a one-to-one relationship, and with restaurants in a one-to-many relationship
 - a user can be associated with only one employee/customer, and an
 employee/customer can be associated with only one user
 - a user can be associated with more than on restaurant, but a restaurant can be associated with only one user
+- has_one: employee
+- has_one: customer
+- has_many: restaurants
 
 employees
 - associates with addresses in a one-to-many relationship, and with users in a one-to-one relationship
