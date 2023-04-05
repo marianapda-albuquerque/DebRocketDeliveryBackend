@@ -33,8 +33,8 @@ addresses
 - one address can be associated with more than one employee/restaurant/customer,
 but an employee/restaurant/customer can be associated with only one address
 - has_many: employees
-- has_one: restaurant
 - has_many: customers
+- has_one: restaurant
 
 users
 - associates with employees and customers in a one-to-one relationship, and with restaurants in a one-to-many relationship
