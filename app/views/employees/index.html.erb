@@ -1,0 +1,26 @@
+<h1>Employees</h1>
+
+<% if @message %>
+  page.alert(@message)
+<% end %>
+
+<table class='table-auto'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @elements.each do |element| %>
+      <tr>
+        <td><%= element.user.name %></td>
+        <td><%= element.user.email %></td>
+        <td><%= link_to "Show", element %></td>
+        <td><%= link_to "Delete", element, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
