@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .view {
+    @apply p-5;
+  }
+
+  .headling-section {
+    @apply flex justify-between items-center pb-8;
+  }
+}
+
+@layer base {
+  h1 {
+    @apply text-4xl font-semibold;
+  }
+}

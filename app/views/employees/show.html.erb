@@ -1,9 +1,13 @@
-<h1><%= @element.user.name %></h1>
+<div class="view">
+    <div class="headling-section">
+        <h1><%= @element.user.name %></h1>
+    </div>
 
-<ul>
-    <li><%= @element.email %></li>
-    <li><%= @element.address.street_address %></li>
-    <li><%= @element.address.city %></li>
-    <li><%= @element.address.postal_code %></li>
-    <li><%= @element.phone %></li>
-</ul>
+    <ul class="w-96">
+        <li class="w-full border-b-2 border-neutral-100 border-opacity-100 py-4 dark:border-opacity-50"><%= @element.email %></li>
+        <li class="w-full border-b-2 border-neutral-100 border-opacity-100 py-4 dark:border-opacity-50"><%= @element.address.street_address %></li>
+        <li class="w-full border-b-2 border-neutral-100 border-opacity-100 py-4 dark:border-opacity-50"><%= @element.address.city %></li>
+        <li class="w-full border-b-2 border-neutral-100 border-opacity-100 py-4 dark:border-opacity-50"><%= @element.address.postal_code %></li>
+        <li class="w-full py-4"><%= @element.phone %></li>
+    </ul>
+</div>
