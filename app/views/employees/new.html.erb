@@ -1,0 +1,25 @@
+<h1>Create New Employee</h1>
+
+<form method="post" action="/employees">
+    <label for="user_email">User Email (must exist):</label>
+    <input type="text" id="user_email" name="employee[user_email]"/><br>
+
+    <label for="street_address">Street Address:</label>
+    <input type="text" id="street_address" name="employee[street_address]"/><br>
+
+    <label for="city">City:</label>
+    <input type="text" id="city" name="employee[city]"/>
+
+    <label for="postal_code">Postal Code:</label>
+    <input type="text" id="postal_code" name="employee[postal_code]"/><br>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="employee[email]"/><br>
+
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" name="employee[phone]"/><br>
+
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <button type="submit">Submit</button>
+</form>
