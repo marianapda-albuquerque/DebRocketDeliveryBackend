@@ -19,6 +19,7 @@
         <td><%= element.user.name %></td>
         <td><%= element.user.email %></td>
         <td><%= link_to "Show", element %></td>
+        <td><%= link_to "Edit", edit_employee_path(element.id) %></td>
         <td><%= link_to "Delete", element, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></td>
       </tr>
     <% end %>
