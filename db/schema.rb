@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_05_230543) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_07_202420) do
   create_table "addresses", force: :cascade do |t|
     t.string "street_address", null: false
     t.string "city", null: false
@@ -39,7 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_05_230543) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["address_id"], name: "index_employees_on_address_id"
-    t.index ["user_id"], name: "index_employees_on_user_id"
+    t.index ["user_id"], name: "index_employees_on_user_id", unique: true
   end
 
   create_table "order_statuses", force: :cascade do |t|
