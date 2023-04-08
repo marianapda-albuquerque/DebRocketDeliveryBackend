@@ -752,6 +752,17 @@ li:last-child {
   }
 }
 
+.action-link {
+  font-weight: 500;
+  --tw-text-opacity: 1;
+  color: rgb(71 85 105 / var(--tw-text-opacity));
+}
+
+.action-link:hover {
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity));
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

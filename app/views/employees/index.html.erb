@@ -27,9 +27,9 @@
         <tr>
           <td class="td"><%= element.user.name %></td>
           <td class="td"><%= element.user.email %></td>
-          <td class="td"><%= link_to "Show", element %></td>
-          <td class="td"><%= link_to "Edit", edit_employee_path(element.id) %></td>
-          <td class="td"><%= link_to "Delete", element, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></td>
+          <td class="td action-link"><%= link_to "Show", element %></td>
+          <td class="td action-link"><%= link_to "Edit", edit_employee_path(element.id) %></td>
+          <td class="td action-link"><%= link_to "Delete", element, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></td>
         </tr>
       <% end %>
     </tbody>
