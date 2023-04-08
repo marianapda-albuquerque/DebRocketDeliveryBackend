@@ -1,36 +1,66 @@
 <div class="view">
     <div class="headling-section">
         <h1>Edit Employee</h1>
+
+        <div class="btn group">
+            <span class="btn-effect group-hover:-translate-x-40 ease"></span>
+            <span class="btn-content"><%= link_to "Go Back", employees_url %></span>
+        </div>
     </div>
 
     <form method="put" action="/employees/<%= @element.id %>">
-        <div class="relative mb-3 xl:w-96">
-            <label for="name">Email:</label>
-            <input type="text" id="email" name="employee[email]" value="<%= @element.email %>" class=""/>
-        </div>
+        <div class="form-box">
+            <div class="form-field">
+                <label class="form-label" for="name">Email:</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <input type="text" id="email" name="employee[email]" value="<%= @element.email %>" class="form-input"/>
+                    </div>
+                </div>
+            </div>
 
-        <div class="relative mb-3 xl:w-96">
-            <label for="name">Street Address:</label>
-            <input type="text" id="street_address" name="employee[street_address]" value="<%= @element.address.street_address %>"/>
-        </div>
+            <div class="form-field">
+                <label class="form-label" for="name">Street Address:</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <input type="text" id="street_address" name="employee[street_address]" value="<%= @element.address.street_address %>" class='form-input'/>
+                    </div>
+                </div>
+            </div>
 
-        <div class="relative mb-3 xl:w-96">
-            <label for="name">City:</label>
-            <input type="text" id="city" name="employee[city]" value="<%= @element.address.city %>"/>
-        </div>
+            <div class="form-field">
+                <label class="form-label" for="name">City:</label>
+                 <div class="form-content">
+                    <div class="form-border">
+                        <input type="text" id="city" name="employee[city]" value="<%= @element.address.city %>" class="form-input"/>
+                    </div>
+                </div>
+            </div>
 
-        <div class="relative mb-3 xl:w-96">
-            <label for="name">Postal Code:</label>
-            <input type="text" id="postal_code" name="employee[postal_code]" value="<%= @element.address.postal_code %>"/>
-        </div>
+            <div class="form-field">
+                <label class="form-label" for="name">Postal Code:</label>
+                 <div class="form-content">
+                    <div class="form-border">
+                        <input type="text" id="postal_code" name="employee[postal_code]" value="<%= @element.address.postal_code %>" class="form-input"/>
+                    </div>
+                </div>
+            </div>
 
-        <div class="relative mb-3 xl:w-96">
-            <label for="name">Phone:</label>
-            <input type="text" id="phone" name="employee[phone]" value="<%= @element.phone %>"/>
+            <div class="form-field">
+                <label class="form-label" for="name">Phone:</label>
+                 <div class="form-content">
+                    <div class="form-border">
+                        <input type="text" id="phone" name="employee[phone]" value="<%= @element.phone %>" class="form-input"/>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-        <button type="submit">Submit</button>
+        <div class="btn group">
+            <span class="btn-effect group-hover:-translate-x-40 ease"></span>
+            <span class="btn-content"><button type="submit">Submit</button></span>
+        </div>
     </form>
 </div>
