@@ -28,6 +28,10 @@
                 <td class="td"><span class="font-semibold">Address</span></td>
                 <td class="td"><%= @element.address.street_address %> - <%= @element.address.city %> - <%= @element.address.postal_code %></td>
             </tr>
+            <tr>
+                <td class="td"><span class="font-semibold">User</span></td>
+                <td class="td"><%= @element.user.name %> | <%= @element.user.email %></td>
+            </tr>
         </tbody>
     </table>
 </div>
