@@ -1,29 +1,39 @@
-<h1>Employees</h1>
-
 <% if @message %>
   page.alert(@message)
 <% end %>
 
-<div><td><%= link_to "Create", new_employee_path %></td></div>
+<div class="view">
+  <div class="headling-section">
+    <h1>Employees</h1>
 
-<table class='table-auto'>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="btn group">
+      <span class="btn-effect group-hover:-translate-x-40 ease"></span>
+      <span class="btn-content"><%= link_to "New", new_employee_path %></span>
+    </div>
+  </div>
 
-  <tbody>
-    <% @elements.each do |element| %>
+
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= element.user.name %></td>
-        <td><%= element.user.email %></td>
-        <td><%= link_to "Show", element %></td>
-        <td><%= link_to "Edit", edit_employee_path(element.id) %></td>
-        <td><%= link_to "Delete", element, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></td>
+        <th class="th">Name</th>
+        <th class="th">Email</th>
+        <th colspan="3" class="th"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody class="tbody">
+      <% @elements.each do |element| %>
+        <tr>
+          <td class="td"><%= element.user.name %></td>
+          <td class="td"><%= element.user.email %></td>
+          <td class="td action-link"><%= link_to "Show", element %></td>
+          <td class="td action-link"><%= link_to "Edit", edit_employee_path(element.id) %></td>
+          <td class="td action-link"><%= link_to "Delete", element, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+

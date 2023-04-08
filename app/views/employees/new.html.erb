@@ -1,25 +1,75 @@
-<h1>Create New Employee</h1>
+<div class="view">
+    <div class="headling-section">
+        <h1>Create New Employee</h1>
 
-<form method="post" action="/employees">
-    <label for="user_email">User Email (must exist):</label>
-    <input type="text" id="user_email" name="employee[user_email]"/><br>
+        <div class="btn group">
+            <span class="btn-effect group-hover:-translate-x-40 ease"></span>
+            <span class="btn-content"><%= link_to "Go Back", employees_url %></span>
+        </div>
+    </div>
 
-    <label for="street_address">Street Address:</label>
-    <input type="text" id="street_address" name="employee[street_address]"/><br>
+    <form method="post" action="/employees">
+        <div class="form-box">
+            <div class="form-field">
+                <label class="form-label" for="user_email">User Email (must exist):</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <input class="form-input" type="text" id="user_email" name="employee[user_email]"/>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-field">
+                <label class="form-label" for="street_address">Street Address:</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <input class="form-input" type="text" id="street_address" name="employee[street_address]"/>
+                    </div>
+                </div>
+            </div>
 
-    <label for="city">City:</label>
-    <input type="text" id="city" name="employee[city]"/>
+            <div class="form-field">
+                <label class="form-label" for="city">City:</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <input class="form-input" type="text" id="city" name="employee[city]"/>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-field">
+                <label class="form-label" for="postal_code">Postal Code:</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <input class="form-input" type="text" id="postal_code" name="employee[postal_code]"/>
+                    </div>
+                </div>
+            </div>
 
-    <label for="postal_code">Postal Code:</label>
-    <input type="text" id="postal_code" name="employee[postal_code]"/><br>
+            <div class="form-field">
+                <label class="form-label" for="email">Email:</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <input class="form-input" type="text" id="email" name="employee[email]"/>
+                    </div>
+                </div>
+            </div>
 
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="employee[email]"/><br>
+             <div class="form-field">
+                <label class="form-label" for="phone">Phone:</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <input class="form-input" type="text" id="phone" name="employee[phone]"/>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <label for="phone">Phone:</label>
-    <input type="text" id="phone" name="employee[phone]"/><br>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
-    <button type="submit">Submit</button>
-</form>
+        <div class="btn group">
+            <span class="btn-effect group-hover:-translate-x-40 ease"></span>
+            <span class="btn-content"><button type="submit">Submit</button></span>
+        </div>
+    </form>
+</div>
