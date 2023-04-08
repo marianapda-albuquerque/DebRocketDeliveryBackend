@@ -17,6 +17,10 @@
     @apply text-4xl font-semibold;
   }
 
+  h2 {
+    @apply text-2xl font-semibold;
+  }
+
   ul {
     @apply max-w-lg;
   }
@@ -85,5 +89,9 @@
 
   .action-link {
     @apply font-medium text-slate-600 hover:text-slate-400
+  }
+
+  .navbar-item {
+    @apply text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium;
   }
 }
