@@ -1,0 +1,97 @@
+<div class="view">
+    <div class="headling-section">
+        <h1>Create New Restaurant</h1>
+
+        <div class="btn group">
+            <span class="btn-effect group-hover:-translate-x-40 ease"></span>
+            <span class="btn-content"><%= link_to "Go Back", restaurants_url %></span>
+        </div>
+    </div>
+
+    <form method="post" action="/restaurants">
+        <div class="form-box">
+            <div class="form-field">
+                <label class="form-label" for="user_email">Person of Contact/User Email (must exist):</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <input class="form-input" type="text" id="user_email" name="restaurant[user_email]"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="name">Restaurant Name:</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <input class="form-input" type="text" id="name" name="restaurant[name]"/>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-field">
+                <label class="form-label" for="street_address">Street Address:</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <input class="form-input" type="text" id="street_address" name="restaurant[street_address]"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="city">City:</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <input class="form-input" type="text" id="city" name="restaurant[city]"/>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-field">
+                <label class="form-label" for="postal_code">Postal Code:</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <input class="form-input" type="text" id="postal_code" name="restaurant[postal_code]"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="email">Email:</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <input class="form-input" type="text" id="email" name="restaurant[email]"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="phone">Phone:</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <input class="form-input" type="text" id="phone" name="restaurant[phone]"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="price_range">Price Range:</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <select class="form-input" type="text" id="price_range" name="restaurant[price_range]">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+        <div class="btn group">
+            <span class="btn-effect group-hover:-translate-x-40 ease"></span>
+            <span class="btn-content"><button type="submit">Submit</button></span>
+        </div>
+    </form>
+</div>
