@@ -1,0 +1,106 @@
+<div class="view">
+    <div class="headling-section">
+        <h1>Edit Restaurant</h1>
+
+        <div class="btn group">
+            <span class="btn-effect group-hover:-translate-x-40 ease"></span>
+            <span class="btn-content"><%= link_to "Go Back", restaurants_url %></span>
+        </div>
+    </div>
+
+    <form method="put" action="/restaurants/<%= @element.id %>">
+        <div class="form-box">
+            <div class="form-field">
+                <label class="form-label" for="user_email">Person of Contact/User Email (must exist):</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <input type="text" id="user_email" name="restaurant[user_email]" value="<%= @element.user.email %>" class="form-input"/>
+                    </div>
+                </div>
+            </div>
+
+             <div class="form-field">
+                <label class="form-label" for="name">Restaurant Name:</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <input type="text" id="name" name="restaurant[name]" value="<%= @element.name %>" class="form-input"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="name">Phone:</label>
+                 <div class="form-content">
+                    <div class="form-border">
+                        <input type="text" id="phone" name="restaurant[phone]" value="<%= @element.phone %>" class="form-input"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="name">Email:</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <input type="text" id="email" name="restaurant[email]" value="<%= @element.email %>" class="form-input"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="name">Street Address:</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <input type="text" id="street_address" name="restaurant[street_address]" value="<%= @element.address.street_address %>" class='form-input'/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="name">City:</label>
+                 <div class="form-content">
+                    <div class="form-border">
+                        <input type="text" id="city" name="restaurant[city]" value="<%= @element.address.city %>" class="form-input"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="name">Postal Code:</label>
+                 <div class="form-content">
+                    <div class="form-border">
+                        <input type="text" id="postal_code" name="restaurant[postal_code]" value="<%= @element.address.postal_code %>" class="form-input"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="price_range">Price Range:</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <select type="text" id="price_range" name="restaurant[price_range]" class="form-input">
+                            <%= options_for_select([1, 2, 3], @element.price_range)%>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="active">Active:</label>
+                <div class="form-content">
+                    <div class="form-border">
+                        <select type="text" id="active" name="restaurant[active]" class="form-input">
+                            <%= options_for_select([true, false], @element.active)%>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+        <div class="btn group">
+            <span class="btn-effect group-hover:-translate-x-40 ease"></span>
+            <span class="btn-content"><button type="submit">Submit</button></span>
+        </div>
+    </form>
+</div>

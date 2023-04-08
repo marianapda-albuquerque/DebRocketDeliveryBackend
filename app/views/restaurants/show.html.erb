@@ -1,0 +1,45 @@
+<div class="view">
+    <div class="headling-section">
+        <h1><%= @element.name %></h1>
+
+        <div class="btn group">
+            <span class="btn-effect group-hover:-translate-x-40 ease"></span>
+            <span class="btn-content"><%= link_to "Go Back", restaurants_url %></span>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th colspan="2" class="th"></th>
+            </tr>
+        </thead>
+
+        <tbody class="tbody">
+            <tr>
+                <td class="td"><span class="font-semibold">Phone</span></td>
+                <td class="td"><%= @element.phone %></td>
+            </tr>
+            <tr>
+                <td class="td"><span class="font-semibold">Email</span></td>
+                <td class="td"><%= @element.email %></td>
+            </tr>
+            <tr>
+                <td class="td"><span class="font-semibold">Address</span></td>
+                <td class="td"><%= @element.address.street_address %> - <%= @element.address.city %> - <%= @element.address.postal_code %></td>
+            </tr>
+            <tr>
+                <td class="td"><span class="font-semibold">Price Range</span></td>
+                <td class="td"><%= @element.price_range %></td>
+            </tr>
+            <tr>
+                <td class="td"><span class="font-semibold">Active</span></td>
+                <td class="td"><%= @element.active %></td>
+            </tr>
+            <tr>
+                <td class="td"><span class="font-semibold">Person of Contact</span></td>
+                <td class="td"><%= @element.user.name %> | <%= @element.user.email %></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
