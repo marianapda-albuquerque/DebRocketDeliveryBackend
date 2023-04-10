@@ -10,13 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_07_202420) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_10_150209) do
   create_table "addresses", force: :cascade do |t|
     t.string "street_address", null: false
     t.string "city", null: false
     t.string "postal_code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "courier_statuses", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "couriers", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "address_id", null: false
+    t.integer "courier_status_id", default: 1, null: false
+    t.string "phone", null: false
+    t.string "email"
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_couriers_on_address_id"
+    t.index ["courier_status_id"], name: "index_couriers_on_courier_status_id"
+    t.index ["user_id"], name: "index_couriers_on_user_id", unique: true
   end
 
   create_table "customers", force: :cascade do |t|
@@ -108,6 +128,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_07_202420) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "couriers", "addresses"
+  add_foreign_key "couriers", "courier_statuses"
+  add_foreign_key "couriers", "users"
   add_foreign_key "customers", "addresses"
   add_foreign_key "customers", "users"
   add_foreign_key "employees", "addresses"
