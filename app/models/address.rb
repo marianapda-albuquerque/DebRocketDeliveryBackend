@@ -4,5 +4,5 @@ class Address < ApplicationRecord
     has_many :couriers
     has_one :restaurant
     validates_associated :employees, :customers, :restaurant
-    validates :street_address, length: { in: 5..50 }
+    validates :street_address, :city, :postal_code, presence: true
 end
