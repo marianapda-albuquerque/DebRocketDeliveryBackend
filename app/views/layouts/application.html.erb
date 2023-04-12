@@ -54,7 +54,7 @@
 
                     <%= link_to "Employees", "/employees", :class => 'navbar-item' %>
 
-                    <%= link_to "Restaurants", "/restaurants", :class => 'navbar-item' %>
+                    <%= link_to "Restaurants", api_restaurants_path, :class => 'navbar-item' %>
                   <% else %>
                     <%= link_to "Sign in", new_user_session_path, :class => 'navbar-item' %>
                   <% end %>
@@ -73,9 +73,9 @@
             <% if user_signed_in? %>
               <%= link_to "Sign out", destroy_user_session_path, data: { "turbo-method": :delete }, :class => 'navbar-link text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium' %>
 
-              <a href="employees/read" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Employees</a>
+              <%= link_to "Employees", "/employees", :class => 'navbar-link text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium' %>
 
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Restaurants</a>
+              <%= link_to "Restaurants", "/restaurants", :class => 'navbar-link text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium' %>
             <% else %>
               <%= link_to "Sign in", new_user_session_path, :class => 'navbar-link text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium' %>
             <% end %>

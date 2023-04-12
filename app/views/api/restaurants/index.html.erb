@@ -8,7 +8,7 @@
 
     <div class="btn group">
       <span class="btn-effect group-hover:-translate-x-40 ease"></span>
-      <span class="btn-content"><%= link_to "New", new_restaurant_path %></span>
+      <span class="btn-content"><%= link_to "New", new_api_restaurant_path %></span>
     </div>
   </div>
 
@@ -17,20 +17,18 @@
     <thead>
       <tr>
         <th class="th">Name</th>
-        <th class="th">Phone</th>
-        <th class="th">Email</th>
+        <th class="th">Price Range</th>
         <th colspan="2" class="th"></th>
       </tr>
     </thead>
 
     <tbody class="tbody">
-      <% @elements.each do |element| %>
+      <% @restaurants.each do |element| %>
         <tr>
           <td class="td"><%= element.name %></td>
-          <td class="td"><%= element.phone %></td>
-          <td class="td"><%= element.email %></td>
-          <td class="td action-link"><%= link_to "Show", element %></td>
-          <td class="td action-link"><%= link_to "Edit", edit_restaurant_path(element.id) %></td>
+          <td class="td"><%= element.price_range %></td>
+          <td class="td action-link"><%= link_to "Show", api_restaurant_path(element.id) %></td>
+          <td class="td action-link"><%= link_to "Edit", edit_api_restaurant_path(element.id) %></td>
         </tr>
       <% end %>
     </tbody>
