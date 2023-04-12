@@ -36,3 +36,6 @@
 
 # Sensitive information
 database.yml
+
+# Others
+launch.json
