@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   post '/api/login',  to: 'api/auth#index'
 
   root to: "home#index"
+  resources :employees
 
   namespace :api do
-    resources :restaurants, :employees
+    resources :restaurants
+    post '/order/:id/status', to: 'orders#status'
   end 
 end
