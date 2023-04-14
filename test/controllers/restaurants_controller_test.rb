@@ -12,7 +12,7 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
     restaurant = Restaurant.create!(user: user, address: address, name: "Restaurant 1", phone: "123456", price_range: 2)
     customer = Customer.create!(user: user, address: address, phone: "123456")
     product = Product.create!(name: "Product 1", cost: 10, restaurant: restaurant)
-    order_status = OrderStatus.create!(name: "Order Status 1")
+    order_status = OrderStatus.create!(name: "pending")
     order = Order.create!(restaurant: restaurant, customer: customer, order_status: order_status, restaurant_rating: 4)
     product_order = ProductOrder.create!(product: product, order: order, product_quantity: 2, product_unit_cost: 300)
 
