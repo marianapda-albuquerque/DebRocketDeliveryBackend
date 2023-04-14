@@ -4,5 +4,5 @@ class Courier < ApplicationRecord
   belongs_to :courier_status
   has_many :orders
   validates_associated :orders
-  validates :user, :address, :phone, :active, presence: true
+  validates :user, :address, :courier_status, :phone, :active, presence: true
 end
