@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   namespace :api do
     resources :restaurants
     post '/order/:id/status', to: 'orders#status'
+    get '/orders', to: 'orders#index'
+    post '/orders', to: 'orders#create'
     get '/products', to: 'products#index'
   end 
 end
