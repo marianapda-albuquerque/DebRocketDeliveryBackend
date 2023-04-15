@@ -8,7 +8,7 @@ class Api::RestaurantsController < ApplicationController
       elsif !is_number_in_range?(params['price_range'], 1, 3)
         render_422_error('Invalid rating or price range')
       else
-        @restaurants = Restaurant.joins(:orders).where(["price_range = ? and orders.restaurant_rating = ?", params['price_range'], params['rating']]).select('restaurant_id as id, name, price_range, orders.restaurant_rating as rating')
+        @restaurants = Restaurant.joins(:orders).where(price_range: params['price_range']).group(:restaurant_id).having("avg(restaurant_rating) >= #{params['rating']}").select('restaurant_id as id, name, price_range, orders.restaurant_rating as rating')
 
         if @restaurants.length == 0
           render_422_error('No restaurants found')
