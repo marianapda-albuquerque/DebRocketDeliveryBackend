@@ -25,45 +25,13 @@
 
 ## Entity Relationship Diagram (ERD) Analysis
 * Identify a pair of tables that have a many-to-one relationship. Explain why they have such a relation.
+    
+    The tables product_orders and orders have a many-to-one relationship, since an order can be associated with more than one product_order.
+
 * Identify a pair of tables that have a one-to-one relationship. Explain why they have such a relation.
+  
+    The tables restaurants and addresses have a one-to-one relationship, since an address can appear only a single time in the restaurants table.
+
 * Identify a many-to-many relationship in the diagram. Which tables are involved and why?
-
-addresses
-- associates with employees and customers in a one-to-many relationship, and with restaurants in a one-to-one relationship
-- one address can be associated with more than one employee/restaurant/customer,
-but an employee/restaurant/customer can be associated with only one address
-- has_many: employees
-- has_many: customers
-- has_one: restaurant
-
-users
-- associates with employees and customers in a one-to-one relationship, and with restaurants in a one-to-many relationship
-- a user can be associated with only one employee/customer, and an
-employee/customer can be associated with only one user
-- a user can be associated with more than on restaurant, but a restaurant can be associated with only one user
-- has_one: employee
-- has_one: customer
-- has_many: restaurants
-
-employees
-- associates with addresses in a one-to-many relationship, and with users in a one-to-one relationship
-
-restaurants
-- associates with users, addresses, products and orders in a one-to-many relationship
-- a restaurant can have many products, but a product can have only one restaurant
-- a restaurant can have many orders, but an order can have only one restaurant
-- user_id? user responsible for the restaurant? a user can be responsible for more than
-one restaurant?
-
-customers
-- associates with users in a one-to-one relationship, and with addresses and orders in a one-to-many relationship
-- one customer can be linked to many orders, but an order can be linked to exactly one customer
-
-products
-- associates with restaurants and product_orders in a one-to-many relationship
-- a product can be linked to many product_orders, but a product_order can be linked to exactly one product
-
-orders
-- associates with restaurants, customers, product_orders and order_statuses in a one-to-many relationship
-- an order can have many product_orders, but a product_order can have only one product related to it
-- an order can be associated with only one order_status, whereas an order_status can be associated with many orders
+  
+    The tables orders and products have an indirect many-to-many relationship through the product_orders table. Since an order can have many product_orders and a product can have many product_orders, that means a product will be connect to many orders, and vice-versa.
