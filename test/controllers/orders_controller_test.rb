@@ -25,6 +25,8 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
       {product_id: @product_order.product.id, product_name: @product_order.product.name, quantity: @product_order.product_quantity, unity_cost: @product_order.product.cost, total_cost: (@product_order.product_quantity * @product_order.product.cost)}, 
       {product_id: @product_order2.product.id, product_name: @product_order2.product.name, quantity: @product_order2.product_quantity, unity_cost: @product_order2.product.cost, total_cost: (@product_order2.product_quantity * @product_order2.product.cost)}
     ]
+
+    @response_format = {id: @restaurant.id, customer_id: @customer.id, customer_name: @customer.user.name, customer_address: @customer.address.street_address, restaurant_name: @restaurant.name, restaurant_address: @restaurant.address.street_address, courier_id: @courier.id, courier_name: @courier.user.name, status: @order.order_status.name, products: @products}
   end
 
   test "update order status to 'pending'" do
@@ -58,19 +60,19 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   test "return a list of orders for valid customer" do
     get "/api/orders", params: { type: "customer", id: @customer.id }
     assert_response 200
-    assert_equal [{id: @restaurant.id, customer_id: @customer.id, customer_name: @customer.user.name, customer_address: @customer.address.street_address, restaurant_name: @restaurant.name, restaurant_address: @restaurant.address.street_address, courier_id: @courier.id, courier_name: @courier.user.name, status: @order.order_status.name, products: @products}].to_json, response.body
+    assert_equal [@response_format].to_json, response.body
   end
 
   test "return a list of orders for valid restaurant" do
     get "/api/orders", params: { type: "restaurant", id: @restaurant.id }
     assert_response 200
-    assert_equal [{id: @restaurant.id, customer_id: @customer.id, customer_name: @customer.user.name, customer_address: @customer.address.street_address, restaurant_name: @restaurant.name, restaurant_address: @restaurant.address.street_address, courier_id: @courier.id, courier_name: @courier.user.name, status: @order.order_status.name, products: @products}].to_json, response.body
+    assert_equal [@response_format].to_json, response.body
   end
 
   test "return a list of orders for valid courier" do
     get "/api/orders", params: { type: "courier", id: @courier.id }
     assert_response 200
-    assert_equal [{id: @restaurant.id, customer_id: @customer.id, customer_name: @customer.user.name, customer_address: @customer.address.street_address, restaurant_name: @restaurant.name, restaurant_address: @restaurant.address.street_address, courier_id: @courier.id, courier_name: @courier.user.name, status: @order.order_status.name, products: @products}].to_json, response.body
+    assert_equal [@response_format].to_json, response.body
   end
 
   test "return 422 for invalid user type" do
@@ -94,7 +96,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   test "return the newly created order" do
     post "/api/orders", params: { restaurant_id: @restaurant.id, customer_id: @customer.id, products: [{id: @product.id, quantity: 1}, {id: @product2.id, quantity: 1}]}
     assert_response 200
-    assert_equal ({id: @restaurant.id, customer_id: @customer.id, customer_name: @customer.user.name, customer_address: @customer.address.street_address, restaurant_name: @restaurant.name, restaurant_address: @restaurant.address.street_address, courier_id: "", courier_name: "", status: @order.order_status.name, products: @products}).to_json, response.body
+    assert_equal (@response_format.merge(courier_id: "", courier_name: "")).to_json, response.body
   end
 
   test "return 400 for request missing parameters" do
